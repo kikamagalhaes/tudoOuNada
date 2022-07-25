@@ -37,11 +37,23 @@ CREATE TABLE tudoounada.curso (
 	assunto VARCHAR(50) NOT NULL,
 	descricao VARCHAR(200) NOT NULL,
 	conteudo VARCHAR(100) NOT NULL,
-	professor VARCHAR(20) NOT NULL,
 	
 	fk_id_usuario INT NOT NULL,
 	FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario)
 );
+
+CREATE TABLE matricula
+(
+  id_matricula  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  fk_id_usuario     INT NOT NULL,
+  fk_id_curso   INT NOT NULL
+
+  
+  CONSTRAINT fk_id_usuario_id_usuario FOREIGN KEY (id_usuario)
+  REFERENCES usuario (id_usuario),
+  CONSTRAINT fk_id_curso_id_curso FOREIGN KEY (id_curso)
+  REFERENCES curso (id_curso)
+)
 
 /*
 =======================
