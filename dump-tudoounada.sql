@@ -42,18 +42,6 @@ CREATE TABLE tudoounada.curso (
 	FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario)
 );
 
-CREATE TABLE matricula
-(
-  id_matricula  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  fk_id_usuario     INT NOT NULL,
-  fk_id_curso   INT NOT NULL
-
-  
-  CONSTRAINT fk_id_usuario_id_usuario FOREIGN KEY (id_usuario)
-  REFERENCES usuario (id_usuario),
-  CONSTRAINT fk_id_curso_id_curso FOREIGN KEY (id_curso)
-  REFERENCES curso (id_curso)
-)
 
 /*
 =======================
@@ -74,6 +62,31 @@ CREATE TABLE tudoounada.aula (
 	
 );
 
+CREATE TABLE tudoounada.matricula
+(
+    fk_id_usuario INT NOT NULL,
+  fk_id_curso   INT NOT NULL
+  	  
+  	  CONSTRAINT pk_matricula PRIMARY KEY (fk_id_usuario, fk_id_curso),	 
+	  CONSTRAINT fk_id_usuario_id_usuario FOREIGN KEY (id_usuario)
+	  REFERENCES usuario (id_usuario),
+	  CONSTRAINT fk_id_curso_id_curso FOREIGN KEY (id_curso)
+	  REFERENCES curso (id_curso)
+);
+
+CREATE TABLE tudoounada.grade
+(
+  
+  fk_id_curso   INT NOT NULL,
+  fk_id_aula     INT NOT NULL
+  
+  CONSTRAINT pk_grade PRIMARY KEY (fk_id_curso,fk_id_aula),
+  CONSTRAINT fk_id_curso_id_curso FOREIGN KEY (id_curso)
+  REFERENCES curso (id_curso),
+  CONSTRAINT fk_id_aula_id_curso FOREIGN KEY (id_aula)
+  REFERENCES aula (id_aula)
+)
+
 
 
 /* * * * * * * * * * * * * * * *  
@@ -83,9 +96,25 @@ CREATE TABLE tudoounada.aula (
 
 /*  Insere os três primeiros registros na tabela "clientes".  */
 
-INSERT INTO tudoounada.usuario (nome, email, whatsapp, professor) VALUES ('Nome 1','nome@email.com','11-84785-8765','false');
-INSERT INTO tudoounada.curso (titulo, assunto, descricao, conteudo, professor, fk_id_usuario) VALUES ('nome do curso','assunto do curso','resumo do que será abordado', 'link do pdf com o índice das aulas', 'nome do professor', '1');
-INSERT INTO tudoounada.aula (video, texto, exercicio, fk_id_curso) VALUES ('link do video','link do pdf','link do formulário','1');
+INSERT INTO tudoounada.usuario (nome, email, whatsapp, professor)
+	VALUES
+		('Nome 1','nome@email.com','11-84785-8765','false'),
+		('Nome 2','nome@email.com','11-84785-8765','false'),
+		('Nome 3','nome@email.com','11-84785-8765','false');
+
+INSERT INTO tudoounada.curso (titulo, assunto, descricao, conteudo, professor, fk_id_usuario)
+	VALUES
+		('nome do curso','assunto do curso','resumo do que será abordado', 'link do pdf com o índice das aulas', 'nome do professor', '1'),
+		('nome do curso','assunto do curso','resumo do que será abordado', 'link do pdf com o índice das aulas', 'nome do professor', '1'),
+		('nome do curso','assunto do curso','resumo do que será abordado', 'link do pdf com o índice das aulas', 'nome do professor', '1');
+
+INSERT INTO tudoounada.aula (video, texto, exercicio, fk_id_curso)
+	VALUES
+		('link do video','link do pdf','link do formulário','1'),
+		('link do video','link do pdf','link do formulário','1'),
+		('link do video','link do pdf','link do formulário','1'),
+		('link do video','link do pdf','link do formulário','1'),
+		('link do video','link do pdf','link do formulário','1');
 
 
 
