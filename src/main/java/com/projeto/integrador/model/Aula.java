@@ -1,16 +1,16 @@
 package com.projeto.integrador.model;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Builder;
 import lombok.Data;
-
-
 @Entity
 @Table(name = "aula")
 @Data
@@ -31,5 +31,10 @@ public class Aula {
 	@Column(name = "exercicio", nullable = true)
 	private String exercicio;
 	
+	@ManyToMany
+	private List<Curso> curso;
+	
+	
+
 
 }
