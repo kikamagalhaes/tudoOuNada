@@ -21,6 +21,9 @@ public class Aula {
 	@Column(name="id_aula")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_aula;
+
+	@Column(name = "tituloAula", nullable = true)
+	private String tituloAula;
 	
 	@Column(name = "video", nullable = true)
 	private String video;
