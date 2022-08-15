@@ -17,7 +17,10 @@ import lombok.Data;
 @Builder
 public class Aula {
 	
-	@Id
+	public Aula() {
+    }
+
+    @Id
 	@Column(name="id_aula")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_aula;
