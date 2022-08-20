@@ -9,12 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Builder;
 import lombok.Data;
 @Entity
 @Table(name = "aula")
 @Data
-@Builder
+
 public class Aula {
 	
 	public Aula() {
