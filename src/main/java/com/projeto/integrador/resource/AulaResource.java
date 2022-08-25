@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,17 +26,17 @@ public class AulaResource {
 	private final AulaService aulaService;
 	
 	@PostMapping
-	public Aula salvar(@RequestBody AulaRequest aulaRequest) {
+	public Aula salvar(@RequestBody @Valid AulaRequest aulaRequest) {
 		return aulaService.salvar(aulaRequest);
 	}
 	
-	@PersistenceContext
+	/*@PersistenceContext
 	private EntityManager manager;
 	
 	
 	@GetMapping("/aulas")
 	public List<Aula> listar() {
 		return manager.createQuery("from Aula",Aula.class).getResultList();
-	}
+	}*/
 
 }

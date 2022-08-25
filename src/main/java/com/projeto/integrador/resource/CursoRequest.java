@@ -14,9 +14,16 @@ public class CursoRequest {
 	
 	@NotNull(message = "O campo TÍTULO não pode ser nulo!")
 	private String titulo;
+	
+	@NotNull(message = "O campo ASSUNTO não pode ser nulo!")
 	private String assunto;
+	
+	@NotNull(message = "O campo DESCRIÇÃO não pode ser nulo!")
 	private String descricao;
+	
+	@NotNull(message = "O campo CONTEÚDO não pode ser nulo!")
 	private String conteudo;
+	
 	private List<Aula> aula;
 	private List<Usuario> usuario;
 	
