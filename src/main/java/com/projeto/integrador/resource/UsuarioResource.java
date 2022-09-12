@@ -1,6 +1,9 @@
 package com.projeto.integrador.resource;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,16 @@ public class UsuarioResource {
 	public String buscar(@RequestParam String nomeUsuario) {
 		System.out.println(nomeUsuario);
 		return "USUARIO" + nomeUsuario;
+	}
+	
+	@GetMapping(path = "todos")
+	public List<Usuario> buscar(){
+		return usuarioService.buscarTodos();
+	}
+	
+	@GetMapping(path = "{id:[0-9]+}")
+	public Usuario buscarPorId(@PathVariable Integer id) {
+		return usuarioService.buscarPorId(id);
 	}
 
 

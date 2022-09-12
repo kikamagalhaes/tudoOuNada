@@ -1,4 +1,5 @@
 package com.projeto.integrador.model;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,12 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Builder;
 import lombok.Data;
 @Entity
 @Table(name = "aula")
 @Data
-@Builder
+
 public class Aula {
 	
 	@Id
@@ -32,8 +32,10 @@ public class Aula {
 	private String exercicio;
 	
 	@ManyToMany
-	private List<Curso> curso;
-	
+	private List<Curso> curso = new ArrayList<>();
+	public Aula() {
+		
+	}
 	
 
 

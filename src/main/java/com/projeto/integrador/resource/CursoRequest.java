@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import com.projeto.integrador.model.Aula;
 import com.projeto.integrador.model.Curso;
 import com.projeto.integrador.model.Usuario;
+
 import lombok.Data;
 
 @Data
@@ -28,10 +29,14 @@ public class CursoRequest {
 	private List<Usuario> usuario;
 	
 	public Curso converterCurso() {
-		return Curso.builder().titulo(this.titulo).assunto(this.assunto)
-				.descricao(this.descricao).conteudo(this.conteudo).aula(this.aula)
-				.usuario(this.usuario).build();
-	}
+		Curso curso = new Curso();
+		curso.setAssunto(this.assunto);
+		curso.setDescricao(this.descricao);
+		curso.setTitulo(this.titulo);
+		curso.setConteudo(this.conteudo);
+		curso.setAula(this.aula);;
+		return curso;
+				}
 
 
 }

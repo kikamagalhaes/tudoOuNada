@@ -1,8 +1,11 @@
 package com.projeto.integrador.resource;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +35,19 @@ public class CursoResource {
 		System.out.println(tituloCurso);
 		return "CURSO" + tituloCurso;
 	}
+	
+	@GetMapping(path = "todos")
+	public List<Curso> buscar() {
+		return cursoService.buscarTodos();
+		
+	}
+	
+	@GetMapping(path = "{id:[0-9]+}")
+	public Curso buscarPorId(@PathVariable Integer id) {
+		return cursoService.buscarPorId(id);
+	}
+
+
 
 
 }

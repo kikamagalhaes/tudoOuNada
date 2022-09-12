@@ -1,5 +1,7 @@
 package com.projeto.integrador.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.projeto.integrador.model.Curso;
@@ -17,7 +19,13 @@ public class CursoService {
 	public Curso salvar(CursoRequest cursoRequest) {
 		return cursoRepository.save(cursoRequest.converterCurso());
 	}
-	
-	
+	 public List<Curso> buscarTodos(){
+		 return cursoRepository.findAll();
+	 }
+		public Curso buscarPorId(Integer id) {
+			return cursoRepository.findById(id).get();
+			
+		}
+
 
 }

@@ -1,4 +1,4 @@
-package com.projeto.integrador.resource;
+ package com.projeto.integrador.resource;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 import com.projeto.integrador.model.Aula;
 import com.projeto.integrador.model.Curso;
+
 import lombok.Data;
 
 @Data
@@ -23,8 +24,12 @@ public class AulaRequest {
 	private List<Curso> curso;
 	
 	public Aula converterAula() {
-		return Aula.builder().video(this.video).texto(this.texto).exercicio
-				(this.exercicio).curso(this.curso).build();
+		Aula aula = new Aula();
+		aula.setExercicio(this.exercicio);
+		aula.setTexto(this.texto);
+		aula.setVideo(this.video);
+		aula.setCurso(this.curso);;
+		return aula;
 	}
 
 

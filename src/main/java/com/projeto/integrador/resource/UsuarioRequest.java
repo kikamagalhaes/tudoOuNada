@@ -15,9 +15,13 @@ public class UsuarioRequest {
 	private List<Curso> curso;
 	
 	public Usuario converterUsuario() {
-		return Usuario.builder().nome(this.nome).email(this.email)
-				.whatsapp(this.whatsapp).professor(this.professor)
-				.curso(this.curso).build();
+		Usuario usuario = new Usuario();
+		usuario.setEmail(this.email);
+		usuario.setNome(this.nome);
+		usuario.setWhatsapp(this.whatsapp);
+		usuario.setProfessor(this.professor);
+		usuario.setCurso(curso);
+		return usuario;
 	}
 
 

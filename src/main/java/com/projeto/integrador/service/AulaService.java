@@ -1,5 +1,7 @@
 package com.projeto.integrador.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.projeto.integrador.model.Aula;
@@ -16,6 +18,15 @@ public class AulaService {
 	
 	public Aula salvar(AulaRequest aulaRequest) {
 		return aulaRepository.save(aulaRequest.converterAula());
+	}
+	
+	public List<Aula> buscarTodos(){
+		return aulaRepository.findAll();
+	}
+	
+	public Aula buscarPorId(Integer id) {
+		return aulaRepository.findById(id).get();
+		
 	}
 	
 }
