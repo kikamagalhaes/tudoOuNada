@@ -6,4 +6,3 @@ Ana Cristina (Kika) <br>
 Meire<br>
 Larissa<br>
 Isaque<br>
-Adão<br>
